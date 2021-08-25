@@ -11,7 +11,7 @@ app.use(cookieParser());
 
 app.use(express.json());
 
-app.get('/', function(req,res) {
+app.get('/home', function(req,res) {
     res.json({message: 'Hello World'});
 });
 
