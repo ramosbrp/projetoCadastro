@@ -1,0 +1,140 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API de cadastro",
+    "version": "1.0.0",
+    "title": "API do projeto de banco de currículos",
+    "contact": {
+      "email": "bruno.rp45@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/"
+    }
+  },
+  "host": "http://localhost:5000",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "curriculos",
+      "description": "todos os curriculos"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "path s": {
+    "/register": {
+      "post": {
+        "tags": [
+          "candidatos"
+        ],
+        "summary": "Cadastro de candidatos",
+        "description": "Rota de cadastro de usuário, recebe: nome, email, gênero e cep...",
+        "operationId": "buscaCategorias",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": " retornadas com sucesso",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Categoria"
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor"
+          }
+        }
+      }
+    }
+    
+  },
+
+  "definitions": {
+    "Register": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "intended": {
+          "type": "string",
+          "format": "int64"
+        },
+        "date": {
+          "type": "string",
+          "format": "int64"
+        },
+        "matrial": {
+          "type": "string",
+          "format": "int64"
+        },
+        "gender": {
+          "type": "string",
+          "format": "int64"
+        },
+        "cep": {
+          "type": "number",
+          "format": "int64"
+        },
+        "address": {
+          "type": "string",
+          "format": "int64"
+        },
+        "number": {
+          "type": "string",
+          "format": "int64"
+        },
+        "district": {
+          "type": "string",
+          "format": "int64"
+        },
+        "city": {
+          "type": "string",
+          "format": "int64"
+        },
+        "state": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tel1": {
+          "type": "number",
+          "format": "int64"
+        },
+        "tel2": {
+          "type": "number",
+          "format": "int64"
+        },
+        "cel": {
+          "type": "number",
+          "format": "int64"
+        },
+        "email": {
+          "type": "string",
+          "format": "int64"
+        },
+        "indentity": {
+          "type": "string",
+          "format": "int64"
+        },
+        "cpf": {
+          "type": "string",
+          "format": "int64"
+        },
+        "haveVehicle": {
+          "type": "string",
+          "format": "int64"
+        },
+        "haveLisence": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

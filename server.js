@@ -5,12 +5,12 @@ const path = require('path');
 const mongoose = require('mongoose');
 const routes = require('./src/routes');
 const swaggerUI = require('swagger-ui-express');
-const swaggerDocs = require ('./routes');
+const swaggerDocs = require ('./swagger.json');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb+srv://ramosUser:ptxwcj53DcQwyxda@cluster0.uyrap.mongodb.net/cadastro?retryWrites=true&w=majority', {
+mongoose.connect('', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     // useCreateIndex: true
