@@ -119,11 +119,11 @@
           "format": "int64"
         },
         "indentity": {
-          "type": "string",
+          "type": "number",
           "format": "int64"
         },
         "cpf": {
-          "type": "string",
+          "type": "number",
           "format": "int64"
         },
         "haveVehicle": {

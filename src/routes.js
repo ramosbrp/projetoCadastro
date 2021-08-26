@@ -2,10 +2,10 @@ const express = require('express');
 
 const routes = express.Router();
 
-const Usuario = require('./controllers/usuarios.controllers')
+const Usuario = require('./controllers/usuarios.controllers');
 
 routes.get('/', Usuario.index);
-routes.post('/api/usuarios', Usuario.create );
+routes.post('/register', Usuario.create );
 
 
 module.exports = routes;                                            

@@ -17,7 +17,7 @@ const DataSchema = new mongoose.Schema({
     tel2: { type: Number, unique: false, required: false },
     cel: { type: Number, unique: false, required: false },
     email: { type: String, unique: true, required: true },
-    indentity: { type: Number, unique: true, required: true },
+    indentity: { type: Number, unique: true, required: false },
     cpf: { type: Number, unique: true, required: true },
     haveVehicle: { type: String, unique: false, required: false },
     haveLisence: { type: String, unique: false, required: false }    
