@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-// const bcrypt = require('bcrypt');   
 
 const DataSchema = new mongoose.Schema({
     name:{ type: String, unique: false, required: true },
