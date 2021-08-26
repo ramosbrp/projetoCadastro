@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');   
+// const bcrypt = require('bcrypt');   
 
 const DataSchema = new mongoose.Schema({
     name:{ type: String, unique: false, required: true },
@@ -11,5 +11,5 @@ const DataSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const usuarios = mongoose.model('Usuarios', DataSchema);
-module.exports = usuarios;
+const Usuarios = mongoose.model('Usuarios', DataSchema);
+module.exports = Usuarios;

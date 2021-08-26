@@ -6,18 +6,32 @@ module.exports = {
         res.json({message: 'Hello World from Controller Usuário'})
     }, 
     async create (req,res) {
-        const { nome_usuario, email_usuario, tipo_usuario, senha_usuario } = req.body;
+        const { name, email, gender, cep } = req.body;
 
-        let data = {};
+        
+        const newUsuario = new Usuario();
 
-        let user = Usuario.findOne({email_usuario});
-        if(!user) {
-            data = {nome_usuario, email_usuario, tipo_usuario, senha_usuario};
-            user = await Usuario.create(data);
+        newUsuario.name = name;
+        newUsuario.email = email;
+        newUsuario.gender = gender;
+        newUsuario.cep = cep;
 
-            return res.status(200).json(user);
-        } else {
-            return res.status(500).json(user);
-        }
+        newUsuario.save((err, savedUsuario)=> {
+            if(err) {
+                console.log(err);
+                return res.status(500).send();
+            }
+            return res.status(200).send(savedUsuario);
+        })
+
+        // let user = Usuario.findOne({email});
+        // if(email.unique == true) {
+        //     data = { name, email, gender, cep };
+        //     user = await Usuario.create(data);
+
+        //     return res.status(200).json(user);
+        // } else {
+        //     return res.status(500).json(user);
+        // }
     }
 }
