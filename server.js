@@ -3,11 +3,16 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
+const routes = require('./src/routes');
 
-mongoose.connect('mongodb%2Bsrv%3A%2F%2FramosUser%3Aptxwcj53DcQwyxda%40cluster0.uyrap.mongodb.net%2Fcadastro%3FretryWrites%3Dtrue%26w%3Dmajority', {
-    // userUnifieldTopology: true,
+const app = express();
+const port = process.env.PORT || 5000;
+
+mongoose.connect('mongodb+srv://ramosUser:ptxwcj53DcQwyxda@cluster0.uyrap.mongodb.net/cadastro?retryWrites=true&w=majority', {
+    useUnifiedTopology: true,
     useNewUrlParser: true,
-    // userFindAndModify: true
+    // useCreateIndex: true
+    // useFindAndModify: false
 }, function (err) {
     if(err) {
         console.log(err);
@@ -16,19 +21,10 @@ mongoose.connect('mongodb%2Bsrv%3A%2F%2FramosUser%3Aptxwcj53DcQwyxda%40cluster0.
     };
 });
 
-
-const app = express();
-const port = process.env.PORT || 5000;
 app.use(cors());
-
 app.use(cookieParser());
-
 app.use(express.json());
-
-app.get('/home', function(req,res) {
-    res.json({message: 'Hello World'});
-});
-
+app.use(routes);
 app.listen(port, function() {
     console.log(`Server runing on port ${port}`);
 })
