@@ -6,20 +6,22 @@ module.exports = {
         res.json({message: 'Hello World from Controller Usuário'})
     }, 
     async create (req,res) {
-        const { name, intended, date, matrial, gender, cep, address, number, district, city, state, tel1, tel2, cel, email, indentity, cpf, haveVehicle, haveLisence } = req.body;
+        const { name, profession, date, maritalStatus, gender, cep, address, number, neighborhood, city, state, tel1, tel2, cel, email, indentity, cpf, haveVehicle, driverLisence } = req.body;
+
+        console.log("olá, ", req.body )
 
         
         const newUsuario = new Usuario();
 
         newUsuario.name = name;
-        newUsuario.intended = intended;
+        newUsuario.profession = profession;
         newUsuario.date = date;
-        newUsuario.matrial = matrial;
+        newUsuario.maritalStatus = maritalStatus;
         newUsuario.gender = gender;
         newUsuario.cep = cep;
         newUsuario.address = address;
         newUsuario.number = number;
-        newUsuario.district = district;
+        newUsuario.neighborhood = neighborhood;
         newUsuario.city = city;
         newUsuario.state = state;
         newUsuario.tel1 = tel1;
@@ -29,7 +31,7 @@ module.exports = {
         newUsuario.indentity = indentity;
         newUsuario.cpf = cpf;
         newUsuario.haveVehicle = haveVehicle;
-        newUsuario.haveLisence = haveLisence;
+        newUsuario.driverLisence = driverLisence;
 
         
         newUsuario.save((err, savedUsuario)=> {
