@@ -83,8 +83,8 @@ export function Form() {
 
                 {/* Job Pretended */}
                 <div>
-                    <label>Profissão</label>
-                    <input name="profession" label="Cargo Pretendido" required
+                    <label> Cargo pretendido </label>
+                    <input name="profession"  required
                         onChange={e => setProfession(e.target.value)}
                         value={profession}
                     />
@@ -219,6 +219,7 @@ export function Form() {
                 
                 {/* Identity */}
                 <div>
+                    <label>Identidade</label>
                     <input name="identity" label="Identidade *" 
                      onChange={e => setIdentity(e.target.value)}
                      value={identity}/>
@@ -226,6 +227,7 @@ export function Form() {
 
                 {/* CPF */}
                 <div>
+                    <label>CPF</label>
                     <input name="cpf" label="CPF *" 
                     onChange={e => setCpf(e.target.value)}
                     value={cpf} />
@@ -233,6 +235,7 @@ export function Form() {
 
                 {/* Have Vehicle */}
                 <div>
+                    <label>Possui Veículo</label>
                     <select name="haveVehicle" label="Possui Veículo" 
                     onChange={e => setVehicle(e.target.value)}
                     value={haveVehicle} >
@@ -244,6 +247,7 @@ export function Form() {
 
                 {/* Driver Lisence */}
                 <div>
+                    <label>Habilitação</label>
                     <input name="driverLicense" label="Habilitação" 
                     onChange={e => setLisence(e.target.value)}
                     value={driverLisence} />
