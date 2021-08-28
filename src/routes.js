@@ -8,4 +8,4 @@ routes.get('/', Usuario.index);
 routes.post('/register', Usuario.create );
 
 
-module.exports = routes;                                            
+module.exports = routes;                                          

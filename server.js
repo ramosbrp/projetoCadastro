@@ -6,14 +6,18 @@ const mongoose = require('mongoose');
 const routes = require('./src/routes');
 const swaggerUI = require('swagger-ui-express');
 const swaggerDocs = require ('./swagger.json');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 
 const app = express();
 const port = process.env.PORT || 5000;
+const uri = process.env.URI
 
 app.use(cors());
 
-mongoose.connect('mongodb+srv://ramosUser:6MXEIzR3qlSIgzNo@cluster0.uyrap.mongodb.net/cadastro?retryWrites=true&w=majority', {
+mongoose.connect(`${uri}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }, function (err) {
