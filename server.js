@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 
-mongoose.connect('', {
+mongoose.connect('mongodb+srv://ramosUser:6MXEIzR3qlSIgzNo@cluster0.uyrap.mongodb.net/cadastro?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
 }, function (err) {
