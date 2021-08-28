@@ -1,0 +1,23 @@
+.formPage{
+    background-color: rgb(228, 236, 236);
+}
+
+#form {
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    padding: 0 100px;
+    margin: 50px;
+    border-radius: 8px;
+}
+
+#form div {
+    display: flex;
+    flex-direction: column;
+    margin-top: .8rem;
+}
+
+#form input, select {
+    padding: 5px;
+    margin-top: .5rem;
+}
+
