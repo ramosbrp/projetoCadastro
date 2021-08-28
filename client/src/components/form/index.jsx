@@ -10,7 +10,7 @@ export function Form() {
     const [maritalStatus, setMaritalStatus] = useState('');
     const [gender, setGender] = useState('');
     const [cep, setCep] = useState('');
-    const [address, setAddress] = useState('');
+    const [street, setStreet] = useState('');
     const [number, setNumber] = useState('');
     const [neighborhood, setNeighborhood] = useState('');
     const [city, setCity] = useState('');
@@ -33,12 +33,14 @@ export function Form() {
                 date,
                 maritalStatus,
                 gender,
-                cep,
-                address,
-                number,
-                neighborhood,
-                city,
-                state,
+                address:{
+                    cep,
+                    street,
+                    number,
+                    neighborhood,
+                    city,
+                    state,
+                },
                 tel1,
                 tel2,
                 cel,
@@ -47,7 +49,7 @@ export function Form() {
                 cpf,
                 haveVehicle,
                 driverLisence
-            });
+            }) 
             alert('Formulário enviado com sucesso!')
         } catch (err) {
             console.log(err);
@@ -58,7 +60,7 @@ export function Form() {
         try {
             const result = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
             setNeighborhood(result.data.bairro);
-            setAddress(result.data.logradouro);
+            setStreet(result.data.logradouro);
             setCity(result.data.localidade);
             setState(result.data.uf);
         } catch (err) {
@@ -145,12 +147,12 @@ export function Form() {
                     />
                 </div>
 
-                {/* Address */}
+                {/* Street */}
                 <div>
                     <label>Logradouro</label>
                     <input label="Logradouro *" required
-                        onChange={e => setAddress(e.target.value)}
-                        value={address}
+                        onChange={e => setStreet(e.target.value)}
+                        value={street}
                     />
                 </div>
 

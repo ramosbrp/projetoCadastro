@@ -2,10 +2,10 @@ const express = require('express');
 
 const routes = express.Router();
 
-const Usuario = require('./controllers/usuarios.controllers');
+const Candidates = require('./controllers/Candidates.controllers');
 
-routes.get('/', Usuario.index);
-routes.post('/register', Usuario.create );
+routes.get('/', Candidates.index);
+routes.post('/register', Candidates.create );
 
 
 module.exports = routes;                                          
