@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import useHistory from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 import './styles.css';
 import '../form/styles.css';
 import * as S from '../style/styled';
 
-const history = useHistory();
 
 export function Form() {
     const [name, setName] = useState('');
@@ -31,11 +30,12 @@ export function Form() {
 
 
     const port = process.env.PORT || 5000;
+    const history = useHistory();
 
     async function submitForm(e) {
         e.preventDefault();
         try {
-            const result = await axios.post(`http://localhost:${port}/register`, {
+            const result = await axios.post(`http://localhost:4000/register`, {
                 name,
                 profession,
                 date,
@@ -58,8 +58,9 @@ export function Form() {
                     cpf,
                     haveVehicle,
                     driverLisence
-                }
+                } 
             }) 
+            history.push('/home');
             alert('Formulário enviado com sucesso!')
         } catch (err) {
             console.log(err);

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import * as S from './styled';
+import * as S from '../../components/style/styled';
 
 import { useHistory } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ export function Success () {
 
                 <h1>Olá</h1>
 
-                <S.Button onClick={()=> { home }} >Home</S.Button>
+                <S.Button onClick={home} >Home</S.Button>
             </div>
         </>
 
