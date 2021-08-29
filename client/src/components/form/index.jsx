@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import useHistory from 'react-router-dom';
 
 import './styles.css';
 import '../form/styles.css';
 import * as S from '../style/styled';
+
+const history = useHistory();
 
 export function Form() {
     const [name, setName] = useState('');
@@ -26,12 +29,13 @@ export function Form() {
     const [haveVehicle, setVehicle] = useState('');
     const [driverLisence, setLisence] = useState('');
 
+
     const port = process.env.PORT || 5000;
 
     async function submitForm(e) {
         e.preventDefault();
         try {
-            const result = await axios.post(`http://localhost:4000/register`, {
+            const result = await axios.post(`http://localhost:${port}/register`, {
                 name,
                 profession,
                 date,
@@ -49,8 +53,7 @@ export function Form() {
                 tel2,
                 cel,
                 email,
-                documents: {
-                    
+                documents: {                    
                     identity,
                     cpf,
                     haveVehicle,
