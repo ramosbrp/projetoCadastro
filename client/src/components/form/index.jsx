@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 import './styles.css';
+import '../form/styles.css';
+import * as S from '../style/styled';
 
 export function Form() {
     const [name, setName] = useState('');
@@ -24,10 +26,12 @@ export function Form() {
     const [haveVehicle, setVehicle] = useState('');
     const [driverLisence, setLisence] = useState('');
 
+    const port = process.env.PORT || 5000;
+
     async function submitForm(e) {
         e.preventDefault();
         try {
-            const result = await axios.post('http://localhost:5000/register', {
+            const result = await axios.post(`http://localhost:4000/register`, {
                 name,
                 profession,
                 date,
@@ -45,10 +49,13 @@ export function Form() {
                 tel2,
                 cel,
                 email,
-                identity,
-                cpf,
-                haveVehicle,
-                driverLisence
+                documents: {
+                    
+                    identity,
+                    cpf,
+                    haveVehicle,
+                    driverLisence
+                }
             }) 
             alert('Formulário enviado com sucesso!')
         } catch (err) {
@@ -68,6 +75,7 @@ export function Form() {
         }
     }
 
+
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="formPage" >
 
@@ -76,7 +84,7 @@ export function Form() {
                 {/* Name Complete */}
                 <div>
                     <label>Nome</label>
-                    <input name="name" label={`Nome Completo *`} required
+                    <S.Input name="name" label={`Nome Completo *`} required
                         onChange={e => setName(e.target.value)}
                         value={name}
                     />
@@ -86,7 +94,7 @@ export function Form() {
                 {/* Job Pretended */}
                 <div>
                     <label> Cargo pretendido </label>
-                    <input name="profession"  required
+                    <S.Input name="profession"  required
                         onChange={e => setProfession(e.target.value)}
                         value={profession}
                     />
@@ -95,7 +103,7 @@ export function Form() {
                 {/* Birth Date */}
                 <div>
                     <label>Data de nascimento</label>
-                    <input type="date" name="date" label="Data de Nascimento *" required
+                    <S.Input type="date" name="date" label="Data de Nascimento *" required
                         onChange={e => setDate(e.target.value)}
                         value={date}
                     />
@@ -130,7 +138,7 @@ export function Form() {
                 {/* Cep */}
                 <div>
                     <label>CEP</label>
-                    <input name="cep" required
+                    <S.Input name="cep" required
                         onChange={e => setCep(e.target.value)}
                         onBlur={() => findCep()}
                         maxLength={8}
@@ -141,7 +149,7 @@ export function Form() {
                 {/* Neighborhood */}
                 <div>
                     <label>Bairro</label>
-                    <input label="Bairro *" required
+                    <S.Input label="Bairro *" required
                         onChange={e => setNeighborhood(e.target.value)}
                         value={neighborhood}
                     />
@@ -150,7 +158,7 @@ export function Form() {
                 {/* Street */}
                 <div>
                     <label>Logradouro</label>
-                    <input label="Logradouro *" required
+                    <S.Input label="Logradouro *" required
                         onChange={e => setStreet(e.target.value)}
                         value={street}
                     />
@@ -159,7 +167,7 @@ export function Form() {
                 {/* Number */}
                 <div>
                     <label>Número</label>
-                    <input label="numero" required
+                    <S.Input label="numero" required
                         onChange={e => setNumber(e.target.value)}
                         value={number}
                     />
@@ -168,7 +176,7 @@ export function Form() {
                 {/* City */}
                 <div>
                     <label>Cidade</label>
-                    <input label="Cidade *" required
+                    <S.Input label="Cidade *" required
                         onChange={e => setCity(e.target.value)}
                         value={city}
                     />
@@ -177,7 +185,7 @@ export function Form() {
                 {/* State */}
                 <div>
                     <label>Estado</label>
-                    <input label="Estado *" required
+                    <S.Input label="Estado *" required
                         onChange={e => setState(e.target.value)}
                         value={state}
                     />
@@ -186,7 +194,7 @@ export function Form() {
                 {/* Tel Fix 1 */}
                 <div>
                     <label>Telefone Fixo 1</label>
-                    <input name="tel1" type="number" 
+                    <S.Input name="tel1" type="number" 
                         onChange={e => setTel1(e.target.value)}
                         value={tel1}
                     />
@@ -195,7 +203,7 @@ export function Form() {
                 {/* Tel Fix 2 */}
                 <div>
                     <label>Telefone Fixo 2</label>
-                    <input name="tel2" type="number" 
+                    <S.Input name="tel2" type="number" 
                         onChange={e => setTel2(e.target.value)}
                         value={tel2}
                     />
@@ -204,7 +212,7 @@ export function Form() {
                 {/* Cel */}
                 <div>
                     <label>Cel</label>
-                    <input name="cel" type="number" 
+                    <S.Input name="cel" type="number" 
                         onChange={e => setCel(e.target.value)}
                         value={cel}
                     />
@@ -213,7 +221,7 @@ export function Form() {
                 {/* E-mail */}
                 <div>
                     <label>E-mail</label>
-                    <input name="name" type="email" label={`Nome Completo *`} required
+                    <S.Input name="name" type="email" label={`Nome Completo *`} required
                         onChange={e => setEmail(e.target.value)}
                         value={email}
                     />
@@ -222,7 +230,7 @@ export function Form() {
                 {/* Identity */}
                 <div>
                     <label>Identidade</label>
-                    <input name="identity" label="Identidade *" 
+                    <S.Input name="identity" label="Identidade *" 
                      onChange={e => setIdentity(e.target.value)}
                      value={identity}/>
                 </div>
@@ -230,7 +238,7 @@ export function Form() {
                 {/* CPF */}
                 <div>
                     <label>CPF</label>
-                    <input name="cpf" label="CPF *" 
+                    <S.Input name="cpf" label="CPF *" 
                     onChange={e => setCpf(e.target.value)}
                     value={cpf} />
                 </div>
@@ -250,13 +258,13 @@ export function Form() {
                 {/* Driver Lisence */}
                 <div>
                     <label>Habilitação</label>
-                    <input name="driverLicense" label="Habilitação" 
+                    <S.Input name="driverLicense" label="Habilitação" 
                     onChange={e => setLisence(e.target.value)}
                     value={driverLisence} />
                 </div>
 
                 <div>
-                    <input type="submit" value="submit" />
+                    <S.Input type="submit" value="submit" />
                 </div>
                 {name}
                 {profession}

@@ -19,5 +19,6 @@
 #form input, select {
     padding: 5px;
     margin-top: .5rem;
+    height: 32px;
 }
 

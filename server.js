@@ -12,10 +12,10 @@ dotenv.config();
 
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT || 5000;
 const uri = process.env.URI
 
-app.use(cors());
 
 mongoose.connect(`${uri}`, {
     useUnifiedTopology: true,
