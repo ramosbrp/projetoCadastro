@@ -59,11 +59,12 @@ export function Form() {
                     haveVehicle,
                     driverLisence
                 } 
-            }) 
+            })
             history.push('/home');
-            alert('Formulário enviado com sucesso!')
+            alert('Formulário enviado com sucesso!');
         } catch (err) {
-            console.log(err);
+            
+            alert(err);
         }
     }
 
